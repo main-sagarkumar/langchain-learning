@@ -13,7 +13,7 @@ model = ChatGoogleGenerativeAI(
 
 prompt = ChatPromptTemplate.from_messages([
     ("system", "You are a Data Science mentor."),
-    ("human", "Explain {topic} using {example_type} examples.")
+    ("human", "Explain {topic} in 3 bullet points.")
 ])
 
 chain = prompt | model
@@ -23,4 +23,4 @@ response = chain.invoke({
     "example_type": "cricket"
 })
 
-print(type(response))
+print(response.content)
